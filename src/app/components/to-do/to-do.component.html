@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let todo of todoList ">
+    <p>{{todo.payload.doc.data().name}}</p>
+    <p (click)="changeStatus(todo)">{{todo.payload.doc.data().status}}</p>
+    <p>{{todo.payload.doc.data().time}}</p>
+    <p *ngIf="todo.payload.doc.data().content as content">{{content}}</p>
+    <button [hidden]="!todo.payload.doc.data().status" class="btn btn-danger"(click)="deleteToDo(todo)">Delete</button>
+  </li>
+</ul>
